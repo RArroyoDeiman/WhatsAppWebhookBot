@@ -22,7 +22,7 @@ namespace WhatsAppWebhookBot.Controllers
             {
                 var message = new Message();
                 message.Body("Aquí tienes una imagen:");
-                message.Media("https://via.placeholder.com/300");
+                //message.Media("https://via.placeholder.com/300");
                 response.Append(message);
             }
             else
