@@ -24,17 +24,17 @@ namespace WhatsAppWebhookBot.Controllers
             {
                 response.Message("Ingresa a esta liga o marca a este numero telefonico:https://deiman.com.mx/contacto México +52 (55) 5561-4200");
             }
-            else if (Body?.ToLower().Contains("Sugerencia") == true)
+            else if (Body?.ToLower().Contains("sugerencia") == true)
             {
                 response.Message("Ingresa a esta liga o marca a este numero telefonico:https://deiman.com.mx/contacto México +52 (55) 5561-4200");
             }
             
-            else if (Body?.ToLower().Contains("Queja") == true)
+            else if (Body?.ToLower().Contains("queja") == true)
             {
                 response.Message("Por favor ingresa los datos de tu queja: Tipo de queja: -Fuga de producto por tapa (esencias y concentrados) -Derrame de producto (glucosa, cobertura y semipreparados) -Desviación en contenido neto -Producto sin etiqueta -Etiquetado incorrecto -Perfil del sabor -Cambio en apariencia");
             }//Etiquetado incorrecto
             
-            else if (Body?.ToLower().Contains("Etiquetado incorrecto") == true)
+            else if (Body?.ToLower().Contains("etiquetado incorrecto") == true)
             {
                 response.Message("Por favor, ingresa los siguientes datos: Nombre del producto Número de lote Datos de la persona (correo electrónico, número telefónico) En donde adquirió el producto (tienda en línea o distribuidor)");
             }//Etiquetado incorrecto
@@ -47,7 +47,7 @@ namespace WhatsAppWebhookBot.Controllers
             }
             else
             {
-                response.Message("Lo siento, no entendí eso. Escribe 'hola' o 'foto'.");
+                response.Message("Lo siento, no entendí eso. Escribe 'hola'.");
             }
 
             return Content(response.ToString(), "application/xml");
