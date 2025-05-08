@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+/*using Microsoft.AspNetCore.Mvc;
 using Twilio.TwiML;
 using Twilio.TwiML.Messaging;
 
@@ -51,6 +51,87 @@ namespace WhatsAppWebhookBot.Controllers
             }
 
             return Content(response.ToString(), "application/xml");
+        }
+    }
+}
+*/
+
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Text;
+using System.Net.Http;
+using Twilio;
+
+namespace WhatsAppWebhookBot.Controllers
+{
+    [ApiController]
+    [Route("webhook")]
+    public class WebhookController : ControllerBase
+    {
+        private const string accountSid = "rarroyo@gdeiman.com";
+        private const string authToken = "D31m4n$%&";
+
+        [HttpPost]
+        public async Task<IActionResult> Receive([FromForm] string Body, [FromForm] string From)
+        {
+            Console.WriteLine($"Mensaje de {From}: {Body}");
+
+            if (Body.ToLower().Contains("menu"))
+            {
+                await SendInteractiveButtons(From);
+                return Ok();
+            }
+
+            return Content("Mensaje recibido");
+        }
+
+        private async Task SendInteractiveButtons(string to)
+        {
+            var payload = new
+            {
+                messaging_product = "whatsapp",
+                to = to,
+                type = "interactive",
+                interactive = new
+                {
+                    type = "button",
+                    body = new { text = "¿Qué deseas hacer?" },
+                    action = new
+                    {
+                        buttons = new[]
+            {
+new {
+type = "reply",
+reply = new {
+id = "btn_saludar",
+title = "Saludar"
+}
+},
+new {
+type = "reply",
+reply = new {
+id = "btn_foto",
+title = "Enviar Foto"
+}
+}
+}
+                    }
+                }
+            };
+
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://api.twilio.com/v1/Accounts/" + accountSid + "/Messages")
+            {
+                Content = new StringContent(JsonConvert.SerializeObject(payload), Encoding.UTF8, "application/json")
+            };
+
+            var byteArray = Encoding.ASCII.GetBytes($"{accountSid}:{authToken}");
+            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+
+            var response = await client.SendAsync(request);
+            var result = await response.Content.ReadAsStringAsync();
+
+            Console.WriteLine($"Twilio response: {result}");
         }
     }
 }
