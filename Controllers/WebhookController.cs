@@ -68,8 +68,8 @@ namespace WhatsAppWebhookBot.Controllers
     [Route("webhook")]
     public class WebhookController : ControllerBase
     {
-        private const string accountSid = "rarroyo@gdeiman.com";
-        private const string authToken = "D31m4n$%&";
+        private const string accountSid = "ACe63c715793aebd8c20243ae4a2e2ae6b";
+        private const string authToken = "4e3eeb3329be0cbf7f6e6a03356d8c4d";
 
         [HttpPost]
         public async Task<IActionResult> Receive([FromForm] string Body, [FromForm] string From)

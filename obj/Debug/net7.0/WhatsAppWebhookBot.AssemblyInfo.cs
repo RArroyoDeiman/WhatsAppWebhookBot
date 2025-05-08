@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WhatsAppWebhookBot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+292a513871c2bcdafaaeb5bbaad9019b3f71386c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+81ceb643f3c03d3e6e521bc17d4e6a638a266117")]
 [assembly: System.Reflection.AssemblyProductAttribute("WhatsAppWebhookBot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WhatsAppWebhookBot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
