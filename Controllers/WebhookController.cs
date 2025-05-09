@@ -13,12 +13,21 @@ namespace WhatsAppMetaWebhook.Controllers
         private static readonly string phoneNumberId = "591999804005728";
 
         [HttpGet]
-        public IActionResult VerifyWebhook([FromQuery] string hub_mode, [FromQuery] string hub_challenge, [FromQuery] string hub_verify_token)
-        {
-            if (hub_mode == "subscribe" && hub_verify_token == "midemo123")
-                return Ok(hub_challenge);
-            return Unauthorized();
-        }
+public IActionResult Get(
+    [FromQuery(Name = "hub.mode")] string mode,
+    [FromQuery(Name = "hub.challenge")] string challenge,
+    [FromQuery(Name = "hub.verify_token")] string verifyToken)
+{
+    const string VERIFY_TOKEN = "midemo123"; // usa el mismo que pusiste en Meta
+
+    if (mode == "subscribe" && verifyToken == VERIFY_TOKEN)
+    {
+        Console.WriteLine("Webhook verificado correctamente.");
+        return Ok(challenge); // responde con el challenge
+    }
+
+    return BadRequest("Error de verificación");
+}
 
         [HttpPost]
         public async Task<IActionResult> Receive([FromBody] dynamic body)
