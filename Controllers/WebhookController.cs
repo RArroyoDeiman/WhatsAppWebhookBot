@@ -51,6 +51,43 @@ public IActionResult Get(
 
             return Ok();
         }
+        [HttpGet("probar-envio")]
+public async Task<IActionResult> ProbarEnvio()
+{
+// Reemplaza con tus datos reales
+string numeroDestino = "5215545549982"; // Tu número verificado
+string tokenTemporal = "EAAI3Qe5HIJYBO5GNUGYyM8KZC1GD65qZCZBP8JXFzWZAE8EApcgwN3c19Y6dVkGBiDTmv9fsmn1SRJZBuWkolZCaZBhK0BDD3jcWDuBbmxZBhkrvmfwxFvlntZCATPaFLELHyBfzWaARhp0NBj44y9aoZA1GZBB2zU23iJMhNXJCkV5sq68zLCWAjqeJXsHUdBTvPJVFSUZD"; // Tu token de acceso temporal
+string idTelefono = "636315776233974"; // El ID del número de teléfono que te dio Meta
+
+await EnviarMensajeWhatsAppMeta(numeroDestino, tokenTemporal, idTelefono);
+
+return Ok("Mensaje enviado (revisa tu WhatsApp)");
+}
+
+private async Task EnviarMensajeWhatsAppMeta(string numeroDestino, string tokenTemporal, string idTelefono)
+{
+var payload = new
+{
+messaging_product = "whatsapp",
+to = numeroDestino,
+type = "text",
+text = new
+{
+body = "Hola desde la API de WhatsApp con C# y Meta!"
+}
+};
+
+var client = new HttpClient();
+client.DefaultRequestHeaders.Authorization =
+new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", tokenTemporal);
+
+var contenido = new StringContent(JsonConvert.SerializeObject(payload), Encoding.UTF8, "application/json");
+
+var respuesta = await client.PostAsync($"https://graph.facebook.com/v19.0/{idTelefono}/messages", contenido);
+var resultado = await respuesta.Content.ReadAsStringAsync();
+
+Console.WriteLine($"Respuesta de Meta: {respuesta.StatusCode} - {resultado}");
+}
 
         private async Task EnviarMensaje(string to, string texto)
         {
