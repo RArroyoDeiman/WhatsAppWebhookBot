@@ -9,8 +9,8 @@ namespace WhatsAppMetaWebhook.Controllers
     [Route("webhook")]
     public class WebhookController : ControllerBase
     {
-        private static readonly string accessToken = "EAASvRXXnsUQBO2ivjtSAdI9SZAWMO6h4hp9NCOuwf6E005CtbRHoTdyx1AssAEedTYlnNgz8d8eOL5ZCLwqQ4ZCz1JQuR54QTrS7WEXVatpnT9ksj6AdfqPptRkkDsAsp67SGJxuRJHH1ErGyL65wTDRXC9N1CNJwYxvRNmPhuZCNnIpZA42x4S6R5DxGwaO5v3sZD";
-        private static readonly string phoneNumberId = "591999804005728";
+        private static readonly string accessToken = "EAAI3Qe5HIJYBO5GNUGYyM8KZC1GD65qZCZBP8JXFzWZAE8EApcgwN3c19Y6dVkGBiDTmv9fsmn1SRJZBuWkolZCaZBhK0BDD3jcWDuBbmxZBhkrvmfwxFvlntZCATPaFLELHyBfzWaARhp0NBj44y9aoZA1GZBB2zU23iJMhNXJCkV5sq68zLCWAjqeJXsHUdBTvPJVFSUZD";
+        private static readonly string phoneNumberId = "636315776233974";
 
         [HttpGet]
 public IActionResult Get(
