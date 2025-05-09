@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WhatsAppMetaWebhook")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4c37c2023f60b7bf28b92b10603257729fc4714")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e88a42e2a5538b231b2a853de4d66a924e2c228")]
 [assembly: System.Reflection.AssemblyProductAttribute("WhatsAppMetaWebhook")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WhatsAppMetaWebhook")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
