@@ -9,7 +9,7 @@ namespace WhatsAppMetaWebhook.Controllers
     [Route("webhook")]
     public class WebhookController : ControllerBase
     {
-        private static readonly string accessToken = "EAASvRXXnsUQBO1jKiSKxWOkJM9W2x1ZC4gqgqaDu96L5Jkh78mJ9IEC9ZBZC2SfxZBRel6AFzjWfzonMK1TycYn6smBNkYd6ZBBZCBzHmsTXZCB2fOJwZCHYwZBV0ZAjVZByvtQMqkpw4dUzDYwCO4gd3mJm9HRRIZCGn3sTdYr2xMi4s1lINlv2bUZBAlDkp9foAVpABcm0ZD";
+        private static readonly string accessToken = "EAASvRXXnsUQBO2ivjtSAdI9SZAWMO6h4hp9NCOuwf6E005CtbRHoTdyx1AssAEedTYlnNgz8d8eOL5ZCLwqQ4ZCz1JQuR54QTrS7WEXVatpnT9ksj6AdfqPptRkkDsAsp67SGJxuRJHH1ErGyL65wTDRXC9N1CNJwYxvRNmPhuZCNnIpZA42x4S6R5DxGwaO5v3sZD";
         private static readonly string phoneNumberId = "591999804005728";
 
         [HttpGet]
@@ -32,8 +32,8 @@ namespace WhatsAppMetaWebhook.Controllers
                 if (type == "button")
                 {
                     string payloadId = message.button.payload;
-                    string respuesta = payloadId == "btn_saludo" ? "¡Hola! ¿En qué puedo ayudarte?"
-                                    : payloadId == "btn_foto" ? "Te enviaré una imagen pronto."
+                    string respuesta = payloadId == "btn_saludo" ? "Queja"
+                                    : payloadId == "btn_foto" ? "Sugerencia"
                                     : "Opción no reconocida.";
                     await EnviarMensaje(from, respuesta);
                 }

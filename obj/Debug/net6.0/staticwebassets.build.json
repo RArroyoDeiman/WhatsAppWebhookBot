@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "jg/vERpc0o6GLbgtPyn+K8HHpB79VO8bZAOeUPNh/98=",
+  "Source": "WhatsAppMetaWebhook",
+  "BasePath": "_content/WhatsAppMetaWebhook",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "ContainingType": "WhatsAppMetaWebhook.Controllers.WebhookController",
+    "Method": "VerifyWebhook",
+    "RelativePath": "webhook",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hub_mode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "hub_challenge",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "hub_verify_token",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WhatsAppMetaWebhook.Controllers.WebhookController",
+    "Method": "Receive",
+    "RelativePath": "webhook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "body",
+        "Type": "System.Object",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
