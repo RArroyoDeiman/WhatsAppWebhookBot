@@ -120,7 +120,7 @@ title = "Enviar Foto"
             };
 
             var client = new HttpClient();
-            var request = new HttpRequestMessage(HttpMethod.Post, "https://api.twilio.com/v1/Accounts/" + accountSid + "/Messages")
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://api.twilio.com/2010-04-01/Accounts/" + accountSid + "/Messages")
             {
                 Content = new StringContent(JsonConvert.SerializeObject(payload), Encoding.UTF8, "application/json")
             };
